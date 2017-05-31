@@ -1,5 +1,5 @@
-# Revit API BIM Samples
-Revit API examples to use as part of my Youtube channel.  
+# Revit API C# Samples
+Revit API c# examples to use as part of my Youtube channel.  
 
 ## Installation
 Clone project or copy and paste from .cs files.  
