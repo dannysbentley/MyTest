@@ -26,6 +26,8 @@ namespace MyTest
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
+
+            #region FILTERED ELEMENT COLLECTOR
             SampleCollector sc = new SampleCollector();
 
             List<Wall> ListWalls_Class = sc.GetWalls_Class(doc);
@@ -39,6 +41,7 @@ namespace MyTest
                 + "---Walls using Category \n" + SB(ListWalls_Category).ToString()
                 + "\n ---Wall LINQ \n" + Wall_ByNameLINQ.Name + " " + Wall_ByNameLINQ.Id
                 + "\n ---Wall lambda \n" + Wall_ByNameLambda.Name + " " + Wall_ByNameLambda.Id);
+            #endregion
 
             return Result.Succeeded;
         }
