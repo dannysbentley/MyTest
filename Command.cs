@@ -9,6 +9,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Linq;
 using System.Text;
+
 #endregion
 
 namespace MyTest
@@ -28,31 +29,29 @@ namespace MyTest
             Document doc = uidoc.Document;
 
             #region FILTERED ELEMENT COLLECTOR
-            SampleCollector sc = new SampleCollector();
+            //SampleCollector sc = new SampleCollector();
 
-            List<Wall> ListWalls_Class = sc.GetWalls_Class(doc);
-            List<Wall> ListWalls_ClassActiveView = sc.GetWalls_ActiveView(doc);
-            List<Wall> ListWalls_Category = sc.GetWalls_Category(doc);
-            Element Wall_ByNameLINQ = sc.GetWallByNameLINQ(doc, "SW48");
-            Element Wall_ByNameLambda = sc.GetWallByNameLambda(doc, "SW48");
+            //List<Wall> ListWalls_Class = sc.GetWalls_Class(doc);
+            //List<Wall> ListWalls_ClassActiveView = sc.GetWalls_ActiveView(doc);
+            //List<Wall> ListWalls_Category = sc.GetWalls_Category(doc);
+            //Element Wall_ByNameLINQ = sc.GetWallByNameLINQ(doc, "SW48");
+            //Element Wall_ByNameLambda = sc.GetWallByNameLambda(doc, "SW48");
 
-            TaskDialog.Show("Values", "---Walls using Class \n" + SB(ListWalls_Class).ToString()
-                + "---Walls using Class Active View \n" + SB(ListWalls_ClassActiveView).ToString()
-                + "---Walls using Category \n" + SB(ListWalls_Category).ToString()
-                + "\n ---Wall LINQ \n" + Wall_ByNameLINQ.Name + " " + Wall_ByNameLINQ.Id
-                + "\n ---Wall lambda \n" + Wall_ByNameLambda.Name + " " + Wall_ByNameLambda.Id);
+            //TaskDialog.Show("Values", "---Walls using Class \n" + SB(ListWalls_Class).ToString()
+            //    + "---Walls using Class Active View \n" + SB(ListWalls_ClassActiveView).ToString()
+            //    + "---Walls using Category \n" + SB(ListWalls_Category).ToString()
+            //    + "\n ---Wall LINQ \n" + Wall_ByNameLINQ.Name + " " + Wall_ByNameLINQ.Id
+            //    + "\n ---Wall lambda \n" + Wall_ByNameLambda.Name + " " + Wall_ByNameLambda.Id);
             #endregion
 
+            #region SET TYPE PARAMETERS
+
+            SampleParameters_Type typeParameter = new SampleParameters_Type();
+            typeParameter.SetTypeParameter(doc);
+            
+            #endregion
+            
             return Result.Succeeded;
-        }
-
-        public StringBuilder SB(List<Wall> Walls)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (Wall w in Walls)
-                sb.Append(w.Name + " " + w.Id + "\n");
-
-            return sb;
         }
     }
 }
