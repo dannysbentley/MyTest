@@ -46,11 +46,19 @@ namespace MyTest
 
             #region SET TYPE PARAMETERS
 
-            SampleParameters_Type typeParameter = new SampleParameters_Type();
-            typeParameter.SetTypeParameter(doc);
+            //SampleParameters_Type typeParameter = new SampleParameters_Type();
+            //typeParameter.SetTypeParameter(doc);
             
             #endregion
-            
+
+            #region DELETE ELEMENTS 
+            SampleDeleteElements d = new SampleDeleteElements();
+
+            d.DeleteElement(doc);
+            d.DeleteElements(doc);
+
+            #endregion
+
             return Result.Succeeded;
         }
     }
