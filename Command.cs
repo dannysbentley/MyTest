@@ -52,12 +52,22 @@ namespace MyTest
             #endregion
 
             #region DELETE ELEMENTS 
-            SampleDeleteElements d = new SampleDeleteElements();
+            //SampleDeleteElements d = new SampleDeleteElements();
 
-            d.DeleteElement(doc);
-            d.DeleteElements(doc);
+            //d.DeleteElement(doc);
+            //d.DeleteElements(doc);
 
             #endregion
+
+            #region CHANGE WALL TYPE AND DUPLICATE WALL
+            //SampleWallChangeSize wallType = new SampleWallChangeSize();
+            //wallType.ChangeWallType(doc);
+            #endregion
+
+            #region CREATE SHARED PARAMETER
+            SampleCreateSharedParameter scsp = new SampleCreateSharedParameter();
+            scsp.CreateSampleSharedParameters(doc, app);
+            #endregion 
 
             return Result.Succeeded;
         }
